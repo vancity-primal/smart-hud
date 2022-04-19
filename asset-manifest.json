@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "./static/css/main.66e643c1.chunk.css",
-    "main.js": "./static/js/main.2249049f.chunk.js",
-    "main.js.map": "./static/js/main.2249049f.chunk.js.map",
-    "runtime-main.js": "./static/js/runtime-main.7f0cce33.js",
-    "runtime-main.js.map": "./static/js/runtime-main.7f0cce33.js.map",
-    "static/js/2.50cd7378.chunk.js": "./static/js/2.50cd7378.chunk.js",
-    "static/js/2.50cd7378.chunk.js.map": "./static/js/2.50cd7378.chunk.js.map",
-    "index.html": "./index.html",
-    "precache-manifest.eb1b6c1e1e8e0fbc7602fb7860ab979d.js": "./precache-manifest.eb1b6c1e1e8e0fbc7602fb7860ab979d.js",
-    "service-worker.js": "./service-worker.js",
-    "static/css/main.66e643c1.chunk.css.map": "./static/css/main.66e643c1.chunk.css.map",
-    "static/js/2.50cd7378.chunk.js.LICENSE.txt": "./static/js/2.50cd7378.chunk.js.LICENSE.txt",
-    "static/media/obs.png": "./static/media/obs.f3f8c219.png",
-    "static/media/powered-by.png": "./static/media/powered-by.61867ea8.png"
+    "main.css": "/smart-hud/static/css/main.66e643c1.chunk.css",
+    "main.js": "/smart-hud/static/js/main.dd67fbc9.chunk.js",
+    "main.js.map": "/smart-hud/static/js/main.dd67fbc9.chunk.js.map",
+    "runtime-main.js": "/smart-hud/static/js/runtime-main.d6f4d46a.js",
+    "runtime-main.js.map": "/smart-hud/static/js/runtime-main.d6f4d46a.js.map",
+    "static/js/2.eb0157e9.chunk.js": "/smart-hud/static/js/2.eb0157e9.chunk.js",
+    "static/js/2.eb0157e9.chunk.js.map": "/smart-hud/static/js/2.eb0157e9.chunk.js.map",
+    "index.html": "/smart-hud/index.html",
+    "precache-manifest.4ce5eb68003c215f3d282313db15e5e3.js": "/smart-hud/precache-manifest.4ce5eb68003c215f3d282313db15e5e3.js",
+    "service-worker.js": "/smart-hud/service-worker.js",
+    "static/css/main.66e643c1.chunk.css.map": "/smart-hud/static/css/main.66e643c1.chunk.css.map",
+    "static/js/2.eb0157e9.chunk.js.LICENSE.txt": "/smart-hud/static/js/2.eb0157e9.chunk.js.LICENSE.txt",
+    "static/media/obs.png": "/smart-hud/static/media/obs.f3f8c219.png",
+    "static/media/powered-by.png": "/smart-hud/static/media/powered-by.61867ea8.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.7f0cce33.js",
-    "static/js/2.50cd7378.chunk.js",
+    "static/js/runtime-main.d6f4d46a.js",
+    "static/js/2.eb0157e9.chunk.js",
     "static/css/main.66e643c1.chunk.css",
-    "static/js/main.2249049f.chunk.js"
+    "static/js/main.dd67fbc9.chunk.js"
   ]
 }
