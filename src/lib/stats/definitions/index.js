@@ -12,6 +12,8 @@ export * from "./neutralOpenerMoves";
 export * from "./killMoves";
 export * from "./selfDestructs";
 export * from "./highestDamagePunish";
+export * from "./highestDamageCombo";
+export * from "./averageTimeToKill";
 
 export const openingsPerKill = {
   name: "Openings / Kill",

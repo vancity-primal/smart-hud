@@ -10,10 +10,12 @@ import { convertFrameCountToDurationString } from "../util";
 import { findWinner } from "../winner";
 import {
   averageKillPercent,
+  averageTimeToKill,
   damageDone,
   damagePerOpening,
   earlyKills,
   firstBlood,
+  highDamageCombos,
   highDamagePunishes,
   inputsPerMinute,
   killMoves,
@@ -39,7 +41,9 @@ STAT_DEFINITIONS.set(Stat.LATE_DEATHS, lateDeaths);
 STAT_DEFINITIONS.set(Stat.SELF_DESTRUCTS, selfDestructs);
 STAT_DEFINITIONS.set(Stat.INPUTS_PER_MINUTE, inputsPerMinute);
 STAT_DEFINITIONS.set(Stat.AVG_KILL_PERCENT, averageKillPercent);
+STAT_DEFINITIONS.set(Stat.AVG_TIME_TO_KILL, averageTimeToKill);
 STAT_DEFINITIONS.set(Stat.HIGH_DAMAGE_PUNISHES, highDamagePunishes);
+STAT_DEFINITIONS.set(Stat.HIGH_DAMAGE_COMBOS, highDamageCombos);
 STAT_DEFINITIONS.set(Stat.DAMAGE_DONE, damageDone);
 
 function computeStats(statsList: string[], games: GameDetails[]) {

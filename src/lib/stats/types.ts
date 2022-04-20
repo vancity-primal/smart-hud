@@ -8,11 +8,13 @@ export enum Stat {
   NEUTRAL_OPENER_MOVES = "mcno",
   INPUTS_PER_MINUTE = "ipm",
   AVG_KILL_PERCENT = "akp",
+  AVG_TIME_TO_KILL = "attk",
   DAMAGE_DONE = "tdd",
   EARLY_KILLS = "ek",
   LATE_DEATHS = "ld",
   SELF_DESTRUCTS = "sd",
   HIGH_DAMAGE_PUNISHES = "hdp",
+  HIGH_DAMAGE_COMBOS = "hdc",
 
   // Custom
   FIRST_BLOOD = "fb",

@@ -29,9 +29,11 @@ const ALL_STATS: string[] = [
   Stat.LATE_DEATHS,
   Stat.SELF_DESTRUCTS,
   Stat.HIGH_DAMAGE_PUNISHES,
+  Stat.HIGH_DAMAGE_COMBOS,
+  Stat.AVG_TIME_TO_KILL,
 ];
 
-const DEFAULT_STATS = [Stat.OPENINGS_PER_KILL, Stat.DAMAGE_DONE, Stat.AVG_KILL_PERCENT, Stat.NEUTRAL_WINS];
+const DEFAULT_STATS = [Stat.INPUTS_PER_MINUTE, Stat.OPENINGS_PER_KILL, Stat.AVG_KILL_PERCENT, Stat.HIGH_DAMAGE_COMBOS];
 
 const getDefaultStats = (): StatOption[] => {
   const current = DEFAULT_STATS.map((s) => ({
@@ -52,8 +54,14 @@ const validateStatOptions = (current: StatOption[]): StatOption[] => {
 };
 
 const generateStatsList = (options: StatOption[]): string[] => {
-  const statsList = options.filter((s) => s.enabled).map((s) => s.statId);
-  return [Stat.KILL_MOVES, Stat.NEUTRAL_OPENER_MOVES, "", ...statsList];
+  // const statsList = options.filter((s) => s.enabled).map((s) => s.statId);
+  return [
+    Stat.INPUTS_PER_MINUTE,
+    Stat.OPENINGS_PER_KILL,
+    Stat.AVG_TIME_TO_KILL,
+    Stat.HIGH_DAMAGE_COMBOS,
+    Stat.KILL_MOVES,
+  ];
 };
 
 export const FileListInput: React.FC<{ buttonColor: string }> = ({ buttonColor }) => {
