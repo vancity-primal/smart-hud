@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/smart-hud/static/css/main.66e643c1.chunk.css",
-    "main.js": "/smart-hud/static/js/main.b44e44ff.chunk.js",
-    "main.js.map": "/smart-hud/static/js/main.b44e44ff.chunk.js.map",
+    "main.js": "/smart-hud/static/js/main.f0137d0e.chunk.js",
+    "main.js.map": "/smart-hud/static/js/main.f0137d0e.chunk.js.map",
     "runtime-main.js": "/smart-hud/static/js/runtime-main.d6f4d46a.js",
     "runtime-main.js.map": "/smart-hud/static/js/runtime-main.d6f4d46a.js.map",
     "static/js/2.71a9d379.chunk.js": "/smart-hud/static/js/2.71a9d379.chunk.js",
     "static/js/2.71a9d379.chunk.js.map": "/smart-hud/static/js/2.71a9d379.chunk.js.map",
     "index.html": "/smart-hud/index.html",
-    "precache-manifest.c0342d3372bf1125442dd9e16d65444a.js": "/smart-hud/precache-manifest.c0342d3372bf1125442dd9e16d65444a.js",
+    "precache-manifest.54eb223e2a2beaafbff6383356123c5d.js": "/smart-hud/precache-manifest.54eb223e2a2beaafbff6383356123c5d.js",
     "service-worker.js": "/smart-hud/service-worker.js",
     "static/css/main.66e643c1.chunk.css.map": "/smart-hud/static/css/main.66e643c1.chunk.css.map",
     "static/js/2.71a9d379.chunk.js.LICENSE.txt": "/smart-hud/static/js/2.71a9d379.chunk.js.LICENSE.txt",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.d6f4d46a.js",
     "static/js/2.71a9d379.chunk.js",
     "static/css/main.66e643c1.chunk.css",
-    "static/js/main.b44e44ff.chunk.js"
+    "static/js/main.f0137d0e.chunk.js"
   ]
 }

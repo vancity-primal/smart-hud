@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e1bcaf1f8bdcb6bc7cc99768ae01a2d9",
+    "revision": "0106c00aa47b67bed9f8bdaddeb19a84",
     "url": "/smart-hud/index.html"
   },
   {
-    "revision": "2cbe87b2386e9b7fb00c",
+    "revision": "63725fd85dc8ea002b88",
     "url": "/smart-hud/static/css/main.66e643c1.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/smart-hud/static/js/2.71a9d379.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "2cbe87b2386e9b7fb00c",
-    "url": "/smart-hud/static/js/main.b44e44ff.chunk.js"
+    "revision": "63725fd85dc8ea002b88",
+    "url": "/smart-hud/static/js/main.f0137d0e.chunk.js"
   },
   {
     "revision": "689c84aa0a0676386fe0",
