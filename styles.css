@@ -1,0 +1,202 @@
+
+
+/* SHARED PROPERTIES */
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+.hud-game-frame,
+.hud-container {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.hud-title-page-1,
+.hud-title-page-2,
+.hud-title-page-3,
+.hud-title-page-4 {
+	height: 100%;
+	width: 100%;
+}
+
+.stats-box-text,
+.hud-title-text {
+	margin: 0;
+	margin-top: 4px;
+}
+
+
+/* OVERALL HUD ELEMENTS */
+
+.hud-master-container {
+	width: 1920px;
+	height: 1080px;
+	padding-top: 45px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	color: white;
+}
+
+.hud-game-frame {
+	width: 1200px;
+	height: 990px;
+
+	border: 5px solid #09001e;
+
+}
+
+.hud-replay-controls-container {
+	width: 850px;
+	margin: 150px auto;
+	padding-top: 25px;
+	padding-bottom: 25px;
+	background-color: #09001e40;
+}
+
+.hud-controls-title {
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	color: black;
+	text-align: center;
+	font-size: 25px;
+}
+
+.hud-replay-file {
+	width: 700px;
+	height: 85px;
+	background-color: gray;
+	margin: 15px auto;
+}
+
+.hud-controls-button {
+	width: 250px;
+	background-color: green;
+	padding: 10px;
+	margin: auto;
+}
+
+.hud-controls-button p {
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	color: black;
+	text-align: center;
+	font-size: 25px;
+}
+
+
+.hud-container {
+	width: 1200px;
+	height: 55px;
+
+	padding: 5px;
+
+	background-color: #09001e;
+	text-align: center;
+}
+
+#carousel-title-bar,
+#carousel-message-bar {
+	margin-top: 10px;
+}
+
+.smartHUD-logo {
+	margin-top: 6px;
+	max-height: 34px;
+}
+
+.carousel-message {
+	font-family: 'Lato', sans-serif;
+	font-weight: 900;
+	color: white;
+	text-align: center;
+	font-size: 25px;
+	margin-top: 6px;
+}
+
+
+/* STATS BOX STYLING (PLAYER PORT BASED) */
+
+.left-player-1 {
+	background: linear-gradient(90deg, rgba(161,0,0,1) 0%, rgba(207,64,93,1) 100%);
+}
+
+.left-player-2 {
+	background: linear-gradient(90deg, rgba(56,99,190,1) 0%, rgba(0,207,255,1) 100%);
+}
+
+.left-player-3 {
+	background: linear-gradient(90deg, rgba(208,116,25,1) 0%, rgba(228,186,44,1) 100%);
+}
+
+.left-player-4 {
+	background: linear-gradient(90deg, rgba(32,115,22,1) 0%, rgba(90,205,43,1) 100%);
+}
+
+.right-player-1 {
+	background: linear-gradient(270deg, rgba(161,0,0,1) 0%, rgba(207,64,93,1) 100%);
+}
+
+.right-player-2 {
+	background: linear-gradient(270deg, rgba(56,99,190,1) 0%, rgba(0,207,255,1) 100%);
+}
+
+.right-player-3 {
+	background: linear-gradient(270deg, rgba(208,116,25,1) 0%, rgba(228,186,44,1) 100%);
+}
+
+.right-player-4 {
+	background: linear-gradient(270deg, rgba(32,115,22,1) 0%, rgba(90,205,43,1) 100%);
+}
+
+
+/* STAT BOXES */
+
+.hud-stats-box {
+	width: 250px;
+	height: 100%;
+
+	text-align: center;
+
+	font-size: 30px;
+	line-height: 36px;
+}
+
+.left-stats-box {
+	float: left;
+}
+
+.right-stats-box {
+	float: right;
+}
+
+.fadeOut{
+	opacity:0;
+	width:0;
+	height:0;
+	transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+
+}
+.fadeIn{
+	opacity:1;
+	width:100px;
+	height:100px;
+	transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
+
+}
+
+/* HUD TITLE BAR */
+
+.hud-title-bar {
+	width: 690px;
+	height: 55px;
+
+	display: inline-block;
+
+	font-size: 24px;
+	line-height: 36px;
+
+	overflow: hidden;
+}
