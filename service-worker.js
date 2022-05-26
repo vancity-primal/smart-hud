@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/smart-hud/precache-manifest.144f16abedfaa37d1164fd97c4378664.js"
+  "/smart-hud/precache-manifest.fcf63776f355acf36325f9c0f98c2c9e.js"
 );
 
 self.addEventListener('message', (event) => {
