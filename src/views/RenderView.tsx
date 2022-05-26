@@ -7,7 +7,6 @@ import { Options } from "containers/Options";
 import { useParam } from "lib/hooks";
 import React from "react";
 import { Link } from "react-router-dom";
-import { GlobalTheme } from "styles/theme";
 
 import { RenderDisplay } from "../containers/RenderDisplay";
 import poweredByImage from "../styles/images/powered-by.png";
@@ -34,7 +33,6 @@ export const RenderView: React.FC<RenderViewProps> = ({ showSlippiLogo }) => {
       `}
     >
       <Container>
-        <GlobalTheme primaryColor={primaryColor} secondaryColor={secondaryColor} />
         <Link to="/" title="Home">
           <Header>Post Match Stats</Header>
         </Link>
@@ -57,7 +55,7 @@ export const RenderView: React.FC<RenderViewProps> = ({ showSlippiLogo }) => {
             />
           </A>
         </div>
-        <RenderDisplay primaryColor={primaryColor} secondaryColor={secondaryColor} />
+        <RenderDisplay />
         <Settings />
       </Container>
     </div>
@@ -78,9 +76,6 @@ const Settings: React.FC = () => {
           }
         `}
       />
-      <div className="settings">
-        <Options />
-      </div>
     </React.Fragment>
   );
 };

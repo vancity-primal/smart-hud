@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { PrimaryButton, SecondaryButton } from "components/Buttons";
+import { ControlsButton, SecondaryButton } from "components/Buttons";
 import React from "react";
 
 import { StatOptionList } from "./StatOptionList";
@@ -40,9 +40,9 @@ export const StatOptions: React.FC<StatOptionsProps> = (props) => {
       >
         <StatOptionList value={props.value} onChange={props.onChange} />
       </div>
-      <PrimaryButton backgroundColor="white" color="black" onClick={props.onClose}>
+      <ControlsButton color="black" onClick={props.onClose}>
         CLOSE
-      </PrimaryButton>
+      </ControlsButton>
       {!props.hideReset && <SecondaryButton onClick={props.onReset}>restore defaults</SecondaryButton>}
     </div>
   );

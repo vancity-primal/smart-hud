@@ -4,27 +4,29 @@ import styled from "@emotion/styled";
 import React from "react";
 import { hasOpacity } from "styles/opacity";
 
-export const PrimaryButton = styled.button<{
-  backgroundColor: string;
-  color: string;
-}>`
-  background: ${(p) => p.backgroundColor};
-  border: none;
-  color: ${(p) => p.color};
-  cursor: pointer;
-  font: inherit;
-  padding: 1rem 0rem;
-  width: 100%;
-  font-weight: 700;
-  font-size: 3rem;
-  opacity: 0.8;
-  transition: opacity 0.2s ease-in-out;
-  &:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-  }
+export const ControlsButton = styled.button`
+  width: 250px;
+  background-color: green;
+  padding: 10px;
+  margin: auto;
   &:hover:enabled {
-    opacity: 1;
+    background-color: darkgreen;
+  }
+  &:active:enabled {
+    background-color: lightgreen;
+  }
+`;
+
+export const ResetButton = styled.button`
+  width: 250px;
+  background-color: grey;
+  padding: 10px;
+  margin: auto;
+  &:hover:enabled {
+    background-color: darkgrey;
+  }
+  &:active:enabled {
+    background-color: lightgrey;
   }
 `;
 

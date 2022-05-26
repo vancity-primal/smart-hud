@@ -11,12 +11,14 @@ export const defaultTheme: Theme = {
   secondaryColor: "#121020",
 };
 
-export const GlobalTheme: React.FC<Theme> = ({ primaryColor, secondaryColor }) => {
+export const GlobalTheme: React.FC = () => {
   return (
     <Global
       styles={css`
-        body.themed {
-          background: radial-gradient(circle at center -30%, ${primaryColor}, ${secondaryColor});
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
         }
       `}
     />

@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { css, jsx } from "@emotion/core";
-import { PrimaryButton, SecondaryButton } from "components/Buttons";
+import { ControlsButton, ResetButton } from "components/Buttons";
 import { DropPad } from "components/DropPad";
 import { ErrorMessage } from "components/ErrorMessage";
 import { FileList } from "components/FileList";
@@ -13,6 +13,8 @@ import { useHistory } from "react-router-dom";
 
 import { AppContext, Types } from "../store";
 import { StatOption, StatOptions } from "./StatOptions";
+
+let timer: any = null;
 
 const STAT_OPTIONS_STORE_KEY = "statOptions";
 
@@ -64,7 +66,7 @@ const generateStatsList = (options: StatOption[]): string[] => {
   ];
 };
 
-export const FileListInput: React.FC<{ buttonColor: string }> = ({ buttonColor }) => {
+export const FileListInput: React.FC = () => {
   const history = useHistory();
   const { state, dispatch } = useContext(AppContext);
   const [error, setError] = React.useState<any>(null);
@@ -74,6 +76,10 @@ export const FileListInput: React.FC<{ buttonColor: string }> = ({ buttonColor }
     dispatch({
       type: Types.CLEAR_ALL,
     });
+    history.push({
+      pathname: "/",
+    });
+    resetHud();
   };
 
   let defaultStats = getDefaultStats();
@@ -103,22 +109,63 @@ export const FileListInput: React.FC<{ buttonColor: string }> = ({ buttonColor }
       const params = generateStatParams(gameDetails, generateStatsList(statOptions));
       const search = "?" + generateSearchParams(params).toString();
       history.push({
-        pathname: "/render",
         search,
       });
+      resetHud();
+      const welcomeMessage = document.getElementById("welcome-message");
+      fadeLoop(welcomeMessage as HTMLElement);
     } catch (err) {
       console.error(error);
       setError(err);
     }
   };
 
+  const fadeLoop = (element: HTMLElement) => {
+    element.style.display = "block";
+    element.classList.add("fadeIn");
+    timer = setTimeout(() => {
+      element.classList.remove("fadeIn");
+      element.classList.add("fadeOut");
+      timer = setTimeout(() => {
+        element.classList.remove("fadeOut");
+        element.style.display = "none";
+        let nextSibling = element.nextElementSibling;
+        if (nextSibling == null) {
+          nextSibling = document.getElementById("welcome-message");
+        }
+        fadeLoop(nextSibling as HTMLElement);
+      }, 1000);
+    }, 1000);
+  };
+
   const onRemove = (filename: string) => {
+    const gameDetails = state.files.filter((f) => f.details !== null).map((f) => f.details as GameDetails);
+    const params = generateStatParams(gameDetails, generateStatsList(statOptions));
+    const search = "?" + generateSearchParams(params).toString();
+    history.push({
+      search,
+    });
     dispatch({
       type: Types.REMOVE_FILE,
       payload: {
         filename,
       },
     });
+  };
+
+  const resetHud = () => {
+    clearTimeout(timer);
+    const welcomeMessage = document.getElementById("welcome-message") as HTMLElement;
+    welcomeMessage.classList.remove("fadeIn");
+    welcomeMessage.classList.remove("fadeOut");
+    (welcomeMessage as HTMLElement).style.display = "block";
+    let element = (welcomeMessage as HTMLElement).nextElementSibling;
+    while (element != null) {
+      element.classList.remove("fadeIn");
+      element.classList.remove("fadeOut");
+      (element as HTMLElement).style.display = "none";
+      element = element.nextElementSibling;
+    }
   };
 
   const onDrop = useCallback(
@@ -167,7 +214,7 @@ export const FileListInput: React.FC<{ buttonColor: string }> = ({ buttonColor }
 
   const finishedProcessing = !state.files.find((f) => f.loading);
   const buttonText =
-    state.files.length === 0 ? "NO FILES ADDED" : finishedProcessing ? "GENERATE STATS" : "PLEASE WAIT";
+    state.files.length === 0 ? "Start/Update Stats Bar" : finishedProcessing ? "Start/Update Stats Bar" : "Please Wait";
 
   if (showOptions) {
     return (
@@ -191,9 +238,6 @@ export const FileListInput: React.FC<{ buttonColor: string }> = ({ buttonColor }
         height: 100%;
       `}
     >
-      <SecondaryButton align="right" onClick={() => setShowOptions(true)}>
-        customize stats
-      </SecondaryButton>
       <DropPad accept=".slp" onDrop={onDrop} />
       <div
         css={css`
@@ -205,17 +249,17 @@ export const FileListInput: React.FC<{ buttonColor: string }> = ({ buttonColor }
       >
         <FileList files={state.files} onRemove={onRemove} />
       </div>
-      <div>
-        <PrimaryButton
-          backgroundColor={buttonColor}
-          color="white"
-          disabled={state.files.length === 0 || !finishedProcessing}
-          onClick={onClick}
-        >
-          {buttonText}
-        </PrimaryButton>
-        {state.files.length > 0 && <SecondaryButton onClick={clearAll}>reset</SecondaryButton>}
-      </div>
+      <ControlsButton
+        css={css`
+          margin-bottom: 5px;
+        `}
+        color="white"
+        disabled={state.files.length === 0 || !finishedProcessing}
+        onClick={onClick}
+      >
+        {buttonText}
+      </ControlsButton>
+      {state.files.length > 0 && <ResetButton onClick={clearAll}>Reset</ResetButton>}
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
     </div>
   );

@@ -41,6 +41,8 @@ export function generateStatParams(gameDetails: GameDetails[], statsList: string
   const rightPlayer = lastGame.players[1];
   params.leftColor = getPortColor(leftPlayer.port);
   params.rightColor = getPortColor(rightPlayer.port);
+  params.leftPort = leftPlayer.port;
+  params.rightPort = rightPlayer.port;
 
   params.char1 = leftPlayer.characterId;
   params.char2 = rightPlayer.characterId;

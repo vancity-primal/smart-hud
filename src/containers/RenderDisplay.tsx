@@ -4,18 +4,8 @@ import styled from "@emotion/styled";
 import { useParam } from "lib/hooks";
 import { PortColor } from "lib/portColor";
 import React from "react";
-import { Theme } from "styles/theme";
 
-import { CharDisplay } from "./CharDisplay";
-import { NameBlock } from "./NameBlock";
-import { StatDisplay } from "./StatDisplay";
-
-const Outer = styled.div`
-  position: relative;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
-`;
+import { StatDisplayList } from "./StatDisplay/StatDisplayList";
 
 const NameBlockContainer = styled.div<{
   align: "left" | "right";
@@ -29,33 +19,10 @@ const NameBlockContainer = styled.div<{
   `}
 `;
 
-export const RenderDisplay: React.FC<Theme> = (theme) => {
-  const [leftColor] = useParam("leftColor", PortColor.P1);
-  const [rightColor] = useParam("rightColor", PortColor.P2);
-  return (
-    <Outer>
-      <div
-        css={css`
-          justify-self: end;
-          width: 100%;
-        `}
-      >
-        <CharDisplay theme={leftColor} charParam="char1" colorParam="color1" align="right" />
-      </div>
-      <StatDisplay leftColor={leftColor} rightColor={rightColor} {...theme} />
-      <div
-        css={css`
-          width: 100%;
-        `}
-      >
-        <CharDisplay theme={rightColor} charParam="char2" colorParam="color2" align="left" />
-      </div>
-      <NameBlockContainer align="left">
-        <NameBlock nameParam="name1" subtitleParam="sub1" {...theme} />
-      </NameBlockContainer>
-      <NameBlockContainer align="right">
-        <NameBlock nameParam="name2" subtitleParam="sub2" {...theme} />
-      </NameBlockContainer>
-    </Outer>
-  );
+export const RenderDisplay: React.FC = () => {
+  const [leftPort] = useParam("leftPort");
+  const [rightPort] = useParam("rightPort");
+  const [stats, setStats] = useParam("stats");
+
+  return <StatDisplayList stats={stats} setStats={setStats} leftPort={leftPort} rightPort={rightPort} />;
 };

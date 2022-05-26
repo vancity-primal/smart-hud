@@ -20,20 +20,17 @@ const ScoreBlock = styled(Block)`
 `;
 
 export const StatDisplay: React.FC<{
-  primaryColor: string;
-  secondaryColor: string;
-  leftColor: string;
-  rightColor: string;
+  leftPort: string;
+  rightPort: string;
 }> = (props) => {
   const { games, score, setGame } = useGames();
   const [stats, setStats] = useParam("stats");
   const winningSide = score.left > score.right ? "left" : score.right > score.left ? "right" : "";
-  const { leftColor, rightColor, ...theme } = props;
+  const { leftPort, rightPort, ...theme } = props;
 
   return (
     <div
       css={css`
-        background: linear-gradient(to right, ${props.secondaryColor}, transparent, ${props.secondaryColor});
         width: 100%;
       `}
     >
@@ -45,19 +42,8 @@ export const StatDisplay: React.FC<{
           margin: 4rem;
         `}
       >
-        <StatDisplayList stats={stats} setStats={setStats} theme={theme} />
-        <Divider />
-        <GameDisplay
-          games={games}
-          updateGameInfo={setGame}
-          winningSide={winningSide}
-          leftColor={leftColor}
-          rightColor={rightColor}
-        />
+        <StatDisplayList leftPort={leftPort} rightPort={rightPort} stats={stats} setStats={setStats} />
       </div>
-      <ScoreBlock color="white" backgroundColor={props.primaryColor}>
-        {`${score.left} - ${score.right}`}
-      </ScoreBlock>
     </div>
   );
 };

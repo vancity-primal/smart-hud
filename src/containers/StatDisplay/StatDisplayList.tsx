@@ -10,96 +10,63 @@ import { StatDisplayItem } from "./StatDisplayItem";
 import { Statistic } from "./Statistic";
 
 interface StatDisplayListProps {
-  theme: Theme;
   stats: string;
   setStats: (s: string) => void;
+  leftPort: string;
+  rightPort: string;
 }
 
 export const StatDisplayList: React.FC<StatDisplayListProps> = (props) => {
-  const { theme, stats, setStats } = props;
+  const { stats, setStats, leftPort, rightPort } = props;
   const [items, setItems] = React.useState<string[]>(stats.split(","));
   React.useEffect(() => {
     setItems(stats.split(","));
   }, [stats]);
 
-  const updateStats = (statIds: string[]) => {
-    // First update the local state
-    setItems(statIds);
-    // Then update the URL state
-    setStats(statIds.join(","));
-  };
-
-  const onDragEnd = (result: any) => {
-    // dropped outside the list
-    if (!result.destination) {
-      return;
-    }
-    const newItems = reorder(items, result.source.index, result.destination.index);
-    updateStats(newItems);
-  };
-
-  const onRemove = (statId: string) => {
-    const newItems = items.filter((s) => s !== statId);
-    updateStats(newItems);
-  };
-
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Droppable droppableId="droppable">
-        {(dropProvided, dropSnapshot) => (
-          <div
-            {...dropProvided.droppableProps}
-            ref={dropProvided.innerRef}
+    <div className="hud-container" css={css``}>
+      <div id="welcome-message">
+        <p
+          css={css`
+            font-family: "Lato", sans-serif;
+            font-weight: 900;
+            color: white;
+            text-align: center;
+            font-size: 25px;
+            margin-top: 6px;
+          `}
+        >
+          Welcome from Vancouver, BC!
+        </p>
+      </div>
+      <div
+        id="smarthud-logo"
+        css={css`
+          display: none;
+        `}
+      >
+        <img
+          css={css`
+            margin-top: 6px;
+            max-height: 34px;
+          `}
+          src="SMART-HUD-LOGO.svg"
+          alt="smartHUD"
+        />
+      </div>
+      {items.map((item, index) => {
+        return (
+          <StatDisplayItem
+            hasItem={Boolean(item)}
+            key={index}
             css={css`
-              margin: -1rem 0;
+              display: none;
             `}
           >
-            {items.map((item, index) => {
-              const key = item ? item : "divider";
-              return (
-                <Draggable key={key} draggableId={key} index={index}>
-                  {(dragProvided, dragSnapshot) => {
-                    const additionalStyles = item ? null : dragProvided.dragHandleProps;
-                    return (
-                      <StatDisplayItem
-                        ref={dragProvided.innerRef}
-                        hasItem={Boolean(item)}
-                        isDraggingOver={dropSnapshot.isDraggingOver}
-                        {...dragProvided.draggableProps}
-                        {...additionalStyles}
-                        style={dragProvided.draggableProps.style}
-                      >
-                        {item ? (
-                          <div
-                            css={css`
-                              position: relative;
-                            `}
-                          >
-                            <Statistic statId={item} theme={theme} {...dragProvided.dragHandleProps} />
-                            <div className="remove" onClick={() => onRemove(item)}>
-                              ✕
-                              <span
-                                css={css`
-                                  margin-left: 1rem;
-                                `}
-                              >
-                                REMOVE
-                              </span>
-                            </div>
-                          </div>
-                        ) : (
-                          <Divider />
-                        )}
-                      </StatDisplayItem>
-                    );
-                  }}
-                </Draggable>
-              );
-            })}
-            {dropProvided.placeholder}
-          </div>
-        )}
-      </Droppable>
-    </DragDropContext>
+            <Statistic statId={item} leftPort={leftPort} rightPort={rightPort} />
+          </StatDisplayItem>
+        );
+      })}
+    </div>
   );
 };

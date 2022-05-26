@@ -15,13 +15,13 @@ const BasicFileItem: React.FC<{ name: string; onRemove?: () => void }> = (props)
   return (
     <div
       css={css`
-        padding: 1.5rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        color: rgba(255, 255, 255, 0.8);
-        background-color: rgba(0, 0, 0, 0.3);
-        ${hasOpacity(0.8)};
+        width: 700px;
+        height: 85px;
+        background-color: gray;
+        margin: 15px auto;
         &:hover {
           .remove-button {
             opacity: 1;
@@ -44,10 +44,12 @@ const BasicFileItem: React.FC<{ name: string; onRemove?: () => void }> = (props)
       <div
         css={css`
           flex: 1;
+          padding: 0rem 0 0 0rem;
         `}
       >
         <div
           css={css`
+            padding: 0.5rem 0 0 2rem;
             font-size: 1.6rem;
             font-weight: bold;
             margin-bottom: 1rem;
@@ -56,7 +58,13 @@ const BasicFileItem: React.FC<{ name: string; onRemove?: () => void }> = (props)
         >
           {name}
         </div>
-        <div>{children}</div>
+        <div
+          css={css`
+            padding: 0 0 0 10rem;
+          `}
+        >
+          {children}
+        </div>
       </div>
       {onRemove && (
         <button className="remove-button" onClick={onRemove} title="Remove">
